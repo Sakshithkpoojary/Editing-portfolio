@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+git initgit initimport { useCallback } from 'react';
 
 export const useSmoothScroll = () => {
   const scrollToSection = useCallback((elementId: string) => {
