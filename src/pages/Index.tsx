@@ -16,15 +16,17 @@ import {
   Youtube,
   Linkedin
 } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
-import aboutMePhoto from "@/assets/about-me-photo.jpg";
+import heroImage from "@/assets/dog.webp";
+import aboutMePhoto from "@/assets/prad.jpg";
 import caterpillarImage from "@/assets/Caterpillar.webp";
 import carImage from "@/assets/car.webp";
-import dogImage from "@/assets/dog.webp";
+import flower1Image from "@/assets/flower1.jpg";
 // Import videos directly from assets
-import iphoneVideo from "@/assets/iphone.mp4";
-import sudeerVideo from "@/assets/sudeer.mp4";
-import templeVideo from "@/assets/temple.mp4";
+import iphoneVideo from "@/assets/temple.mp4";
+import sudeerVideo from "@/assets/ve2.mp4";
+import templeVideo from "@/assets/ve3.mp4";
+// Import vertical video styles
+import "@/components/VerticalVideo.css";
 
 // Define the interface for portfolio items
 interface PortfolioItem {
@@ -53,7 +55,7 @@ const Index = () => {
    
     {
       id: 7,
-      title: "Nature hotography",
+      title: "Nature Photography",
       category: "Photo Editing",
       image: caterpillarImage,
       isVideo: false
@@ -67,32 +69,32 @@ const Index = () => {
     },
     {
       id: 9,
-      title: "Pet Portrait Retouching",
+      title: "Flower Photography",
       category: "Photo Editing",
-      image: dogImage,
+      image: flower1Image,
       isVideo: false
     },
     {
       id: 10,
-      title: "Cinematic Editing", // Changed from "iPhone Product Review"
+      title: "Mahamastakabhisheka 2024", 
       category: "Video Editing",
-      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1757405422/iphone_fq4fuj.mp4",
+      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1757405417/temple_xpgk8a.mp4",
       isVideo: true,
       videoSrc: iphoneVideo
     },
     {
       id: 11,
-      title: "Vani 2024-25",
+      title: "When you’re still buffering life at age 2",
       category: "Video Editing",
-      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1757405417/temple_xpgk8a.mp4",
+      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1758515502/ve2_bbwdl0.mp4",
       isVideo: true,
       videoSrc: sudeerVideo
     },
     {
       id: 12,
-      title: " Mahamastakabhisheka 2024",
+      title: "When the party starts hitting different",
       category: "Video Editing",
-      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1757405416/sudeer_ejzhaz.mp4",
+      image: "https://res.cloudinary.com/djrcyva0f/video/upload/v1758515499/ve3_nobacq.mp4",
       isVideo: true,
       videoSrc: templeVideo
     }
@@ -165,12 +167,17 @@ const Index = () => {
             </div>
             <div className="lg:w-1/2 flex justify-center">
               <div className="relative">
+                              <div className="relative w-full max-w-2xl mx-auto">
                 <img 
                   src={heroImage} 
-                  alt="Creative workspace with video editing equipment"
-                  className="rounded-2xl shadow-hover max-w-full h-auto"
+                  alt="Yellow flower - Grow with understanding"
+                  className="rounded-2xl shadow-hover w-full h-[400px] md:h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent"></div>
+                <div className="absolute bottom-8 left-8 right-8 text-white text-center">
+            
+                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -231,14 +238,14 @@ const Index = () => {
               <Card key={item.id} className="card-elegant rounded-2xl overflow-hidden group">
                 <div className="relative overflow-hidden">
                   {item.videoSrc ? (
-                    <div className="relative w-full h-64">
+                    <div className="vertical-video-container">
                         <video 
                           src={item.videoSrc}
                           controls
                           autoPlay
                           loop
                           muted
-                          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="vertical-video"
                         />
                       </div>
                   ) : (
@@ -387,6 +394,7 @@ const Index = () => {
                     required
                   />
                 </div>
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
                   <Textarea 
@@ -421,6 +429,7 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      <div id="root"></div>
     </div>
   );
 };
