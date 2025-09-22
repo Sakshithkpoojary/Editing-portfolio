@@ -39,8 +39,11 @@ interface PortfolioItem {
 }
 
 const Index = () => {
-  const { toast } = useToast();
-  const scrollToSection = useSmoothScroll();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
